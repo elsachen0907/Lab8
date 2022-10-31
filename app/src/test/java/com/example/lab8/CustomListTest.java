@@ -45,8 +45,9 @@ public class CustomListTest {
     void testHasCity(){
         list = MockCityList();
         // a new city which does not appear before, it should be FALSE for hascity method
-        City city2 = new City("RedDeer", "Alberta");
-        assertEquals(false,list.hasCity(city2));
+        list.addCity(new City("Red Deer", "SK"));
+        City city2 = (City) list.getCities().get(0);
+        assertEquals(true,list.hasCity(city2));
 
     }
 
@@ -64,11 +65,18 @@ public class CustomListTest {
         assertEquals(0, list.getCities().size());
         // does not include this city any more in the list
         assertFalse(list.getCities().contains(city1));
+    }
 
-////         case where the city is not in the list, but we want to test the exception throw
-//        cityList.delete(city1);
-//        assertThrows( IllegalArgumentException.class, () -> {
-//            cityList.delete(city1); });
+    @Test
+    void testCountCity() {
+        list = MockCityList();
+        assertEquals(0, list.countCities());
+        list.addCity(new City("Saskatoon", "SK"));
+        assertEquals(1, list.countCities());
+
+        City city3 = (City) list.getCities().get(0);
+        list.delete(city3);
+        assertEquals(0, list.countCities());
     }
 
 
