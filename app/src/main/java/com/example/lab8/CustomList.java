@@ -68,14 +68,14 @@ public class CustomList extends ArrayAdapter<City> {
      * @return boolean true of false
      */
     public boolean hasCity(City city){
-//        if (cities.contains(city)){
-////            System.out.println("The city belongs here");
-//            return true;
-//        }else {
-////            System.out.println("The city does not belong here");
-//            return false;
-//        }
-        return true;
+        if (cities.contains(city)){
+//            System.out.println("The city belongs here");
+            return true;
+        }else {
+//            System.out.println("The city does not belong here");
+            return false;
+        }
+
     }
 
 }
