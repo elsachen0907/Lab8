@@ -3,6 +3,7 @@ package com.example.lab8;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -33,6 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
         cityAdapter = new CustomList(this,cityDataList);
         cityList.setAdapter(cityAdapter);
-
+//        Log.e("size is",""+cityDataList.size());
     }
 }

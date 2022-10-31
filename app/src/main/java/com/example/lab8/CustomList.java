@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class CustomList extends ArrayAdapter<City> {
 
@@ -62,6 +64,12 @@ public class CustomList extends ArrayAdapter<City> {
         cities.add(city);
     }
 
+    public List getCities() {
+        List list = cities;
+        Collections.sort(list);
+        return list;
+    }
+
     /**
      * This is used to check whether thew given city belongs in the list
      * @param city
@@ -75,7 +83,17 @@ public class CustomList extends ArrayAdapter<City> {
 //            System.out.println("The city does not belong here");
             return false;
         }
+    }
 
+    /**
+     * This is to delete a city item form the list
+     * @param city
+     */
+    public void delete(City city) {
+//        if (cities.contains(city)==false) {
+//            throw new IllegalArgumentException();
+//        }
+//        cities.remove(city);
     }
 
 }

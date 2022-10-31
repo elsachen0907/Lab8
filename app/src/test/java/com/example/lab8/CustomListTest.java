@@ -2,9 +2,12 @@ package com.example.lab8;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 //import org.junit.Before;
+import android.util.Log;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -41,18 +44,32 @@ public class CustomListTest {
     @Test
     void testHasCity(){
         list = MockCityList();
-//        assertEquals(0,mockCity().compareTo(cityList.hasCity(city)));
-        // add the mocklist city which appear before, should throw an exception
-//        City city1 = new City("Edmonton", "Alberta");
-//        cityList.hasCity(city1);
-//        assertEquals(true, cityList.hasCity(city1));
-//        assertThrows( IllegalArgumentException.class, () ->
-//        {cityList.hasCity(city1);});
-
-        // add a brand new city here, which does not appear before
+        // a new city which does not appear before, it should be FALSE for hascity method
         City city2 = new City("RedDeer", "Alberta");
         assertEquals(false,list.hasCity(city2));
 
     }
+
+    @Test
+    void testDeleteCity() {
+        list = MockCityList();
+
+        assertEquals(0, list.getCities().size());
+        list.addCity(new City("Estevan", "SK"));
+        assertEquals(1, list.getCities().size());
+        // index 0 first one is the mockcity (edmonton)
+        City city1 = (City) list.getCities().get(0);
+        list.delete(city1);
+        // the size should equal to 0
+        assertEquals(0, list.getCities().size());
+        // does not include this city any more in the list
+        assertFalse(list.getCities().contains(city1));
+
+////         case where the city is not in the list, but we want to test the exception throw
+//        cityList.delete(city1);
+//        assertThrows( IllegalArgumentException.class, () -> {
+//            cityList.delete(city1); });
+    }
+
 
 }
