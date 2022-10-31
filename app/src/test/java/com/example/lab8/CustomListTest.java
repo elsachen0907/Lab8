@@ -50,7 +50,7 @@ public class CustomListTest {
 //        {cityList.hasCity(city1);});
 
         // add a brand new city here, which does not appear before
-        City city2 = new City("Calgary", "Alberta");
+        City city2 = new City("RedDeer", "Alberta");
         assertEquals(false,list.hasCity(city2));
 
     }

@@ -75,7 +75,7 @@ public class CustomList extends ArrayAdapter<City> {
 ////            System.out.println("The city does not belong here");
 //            return false;
 //        }
-        return false;
+        return true;
     }
 
 }
