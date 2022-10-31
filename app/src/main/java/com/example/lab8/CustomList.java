@@ -62,4 +62,20 @@ public class CustomList extends ArrayAdapter<City> {
         cities.add(city);
     }
 
+    /**
+     * This is used to check whether thew given city belongs in the list
+     * @param city
+     * @return boolean true of false
+     */
+    public boolean hasCity(City city){
+//        if (cities.contains(city)){
+////            System.out.println("The city belongs here");
+//            return true;
+//        }else {
+////            System.out.println("The city does not belong here");
+//            return false;
+//        }
+        return false;
+    }
+
 }
